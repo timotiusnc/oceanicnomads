@@ -1,7 +1,7 @@
 'use client'
 
 import { useId } from 'react'
-import Image from 'next/image'
+import Image, { type ImageProps } from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
@@ -10,7 +10,15 @@ import screenshotContacts from '@/images/screenshots/contacts.png'
 import screenshotInventory from '@/images/screenshots/inventory.png'
 import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
 
-const features = [
+interface Feature {
+  name: React.ReactNode
+  summary: string
+  description: string
+  image: ImageProps['src']
+  icon: React.ComponentType
+}
+
+const features: Array<Feature> = [
   {
     name: 'Reporting',
     summary: 'Stay on top of things with always up-to-date reporting features.',
@@ -98,7 +106,15 @@ const features = [
   },
 ]
 
-function Feature({ feature, isActive, className, ...props }) {
+function Feature({
+  feature,
+  isActive,
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<'div'> & {
+  feature: Feature
+  isActive: boolean
+}) {
   return (
     <div
       className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}

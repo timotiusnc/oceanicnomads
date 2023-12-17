@@ -24,7 +24,24 @@ const variantStyles = {
   },
 }
 
-export function Button({ className, ...props }) {
+type ButtonProps = (
+  | {
+      variant?: 'solid'
+      color?: keyof typeof variantStyles.solid
+    }
+  | {
+      variant: 'outline'
+      color?: keyof typeof variantStyles.outline
+    }
+) &
+  (
+    | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'color'>
+    | (Omit<React.ComponentPropsWithoutRef<'button'>, 'color'> & {
+        href?: undefined
+      })
+  )
+
+export function Button({ className, ...props }: ButtonProps) {
   props.variant ??= 'solid'
   props.color ??= 'slate'
 

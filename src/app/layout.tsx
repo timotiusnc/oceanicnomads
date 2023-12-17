@@ -2,14 +2,16 @@ import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
+import { type Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: '%s - Oceanic Nomads',
+    default:
+      'Oceanic Nomads - Diving Courses | Diving Trips | Diving Community',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Diving Courses | Diving Trips | Diving Community. Diving, party, dancing laughing.',
 }
 
 const inter = Inter({
@@ -24,7 +26,11 @@ const lexend = Lexend({
   variable: '--font-lexend',
 })
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html
       lang="en"
