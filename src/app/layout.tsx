@@ -10,8 +10,18 @@ export const metadata: Metadata = {
     default:
       'Oceanic Nomads - Diving Courses | Diving Trips | Diving Community',
   },
+  openGraph: {
+    images: [
+      {
+        url: 'https://oceanicnomads.id/opengraph-image.jpg',
+        type: 'image/jpeg',
+        width: 1792,
+        height: 1024,
+      },
+    ],
+  },
   description:
-    'Diving Courses | Diving Trips | Diving Community. Diving, party, dancing laughing.',
+    'Diving Courses | Diving Trips | Diving Community – Diving, party, dancing laughing.',
 }
 
 const inter = Inter({
